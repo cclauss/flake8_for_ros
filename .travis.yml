@@ -42,8 +42,8 @@ env:
     - REPO=ros-infrastructure/rosrelease-legacy
     - REPO=ros-infrastructure/superflore  # has .travis.yml file
 cache: pip
-python:
-    - 2.7
+#python:
+    #- 2.7
     #- 3.6
     #- nightly
     #- pypy

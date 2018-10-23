@@ -1,17 +1,56 @@
 group: travis_latest
+dist: xenial    # required for Python 3.7 (travis-ci/travis-ci#9069)
+sudo: required  # required for Python 3.7 (travis-ci/travis-ci#9069)
 language: python
 cache: pip
+python:
+  - 2.7
+  - 3.7
 matrix:
   allow_failures:
     - python: 2.7
-  include:
-    - python: 2.7
-    - python: 3.7
-      dist: xenial    # required for Python 3.7 (travis-ci/travis-ci#9069)
-      sudo: required  # required for Python 3.7 (travis-ci/travis-ci#9069)
-  env:
-    - REPO=ros-infrastructure/bloom  # has .travis.yml file
-    - REPO=ros-infrastructure/buildfarm
+env:
+env:
+  - REPO=ros/angles 
+  - REPO=ros/catkin
+  - REPO=ros/documentation
+  - REPO=ros/dynamic_reconfigure
+  - REPO=ros/executive_smach
+  - REPO=ros/gencpp
+  - REPO=ros/genlisp
+  - REPO=ros/genmsg
+  - REPO=ros/genpy
+  - REPO=ros/genpybindings
+  - REPO=ros/gentypelibxml
+  - REPO=ros/geometry_tutorials
+  - REPO=ros/joint_state_publisher
+  - REPO=ros/ros
+  - REPO=ros/ros_comm
+  - REPO=ros/rosbag_image_compressor
+  - REPO=ros/rosdistro  # has .travis.yml file
+  - REPO=ros/roslint
+  - REPO=ros/tf2_visualization
+  - REPO=ros/urdf_parser_py
+  - REPO=ros/xacro
+  - REPO=ros-infrastructure/bloom  # has .travis.yml file
+  - REPO=ros-infrastructure/buildfarm
+  - REPO=ros-infrastructure/catkin-sphinx
+  - REPO=ros-infrastructure/catkin_pkg  # has .travis.yml file
+  - REPO=ros-infrastructure/catkinize  # has .travis.yml file
+  - REPO=ros-infrastructure/dry_prerelease_job_generator
+  - REPO=ros-infrastructure/jenkins_tools
+  - REPO=ros-infrastructure/reprepro-updater
+  - REPO=ros-infrastructure/ros.org_scripts
+  - REPO=ros-infrastructure/ros_buildfarm  # has .travis.yml file
+  - REPO=ros-infrastructure/ros_buildfarm_config
+  - REPO=ros-infrastructure/ros_release_python
+  - REPO=ros-infrastructure/rosdep  # has .travis.yml file
+  - REPO=ros-infrastructure/rosdistro  # has .travis.yml file
+  - REPO=ros-infrastructure/rosdoc_lite
+  - REPO=ros-infrastructure/rosinstall_generator  # has .travis.yml file
+  - REPO=ros-infrastructure/rospkg  # has .travis.yml file
+  - REPO=ros-infrastructure/rosrelease-legacy
+  - REPO=ros-infrastructure/superflore  # has .travis.yml file
 install:
   #- pip install -r requirements.txt
   - pip install flake8  # pytest  # add other testing frameworks later

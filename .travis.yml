@@ -1,5 +1,15 @@
 group: travis_latest
 language: python
+cache: pip
+matrix:
+    allow_failures:
+        - python: 2.7
+    include:
+        _ python: 2.7
+        - python: 3.7
+          dist: xenial    # required for Python 3.7 (travis-ci/travis-ci#9069)
+          sudo: required  # required for Python 3.7 (travis-ci/travis-ci#9069)
+
 env:
     - REPO=ros/angles 
     - REPO=ros/catkin
@@ -41,23 +51,6 @@ env:
     - REPO=ros-infrastructure/rospkg  # has .travis.yml file
     - REPO=ros-infrastructure/rosrelease-legacy
     - REPO=ros-infrastructure/superflore  # has .travis.yml file
-cache: pip
-#python:
-    #- 2.7
-    #- 3.6
-    #- nightly
-    #- pypy
-    #- pypy3
-matrix:
-    allow_failures:
-        - python: 2.7
-        - python: nightly
-        - python: pypy
-        - python: pypy3
-    include:
-        - python: 3.7
-          dist: xenial    # required for Python 3.7 (travis-ci/travis-ci#9069)
-          sudo: required  # required for Python 3.7 (travis-ci/travis-ci#9069)
 
 install:
     #- pip install -r requirements.txt

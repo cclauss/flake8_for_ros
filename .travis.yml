@@ -1,7 +1,6 @@
 group: travis_latest
-language: generic
+language: python
 cache: pip
-
 matrix:
     allow_failures:
         - python: 2.7
@@ -51,7 +50,6 @@ env:
     - REPO=ros-infrastructure/rospkg  # has .travis.yml file
     - REPO=ros-infrastructure/rosrelease-legacy
     - REPO=ros-infrastructure/superflore  # has .travis.yml file
-
 install:
     #- pip install -r requirements.txt
     - pip install flake8  # pytest  # add other testing frameworks later

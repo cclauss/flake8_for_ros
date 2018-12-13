@@ -10,7 +10,6 @@ matrix:
   allow_failures:
     - python: 2.7
 env:
-env:
   - REPO=ros/angles 
   - REPO=ros/catkin
   - REPO=ros/documentation
@@ -53,6 +52,7 @@ env:
   - REPO=ros-infrastructure/superflore  # has .travis.yml file
 install:
   #- pip install -r requirements.txt
+  - pip install web.py
   - pip install flake8  # pytest  # add other testing frameworks later
 before_script:
   - URL=https://github.com/${REPO}
